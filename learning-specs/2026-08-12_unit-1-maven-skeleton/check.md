@@ -19,13 +19,17 @@
 
 ## 二、亲手验证（对照参照物逐文件核对）
 
-### 核对 1：diff 零差异
-对以下 5 个文件执行 diff，**输出必须为空**：
+### 核对 1：diff 内容一致
+对以下 5 个文件执行 diff，**实质内容一致即通过**：
 - `pom.xml`（根）→ 参照物 `pom.xml`
 - `sky-common/pom.xml` → 参照物 `sky-common/pom.xml`
 - `sky-pojo/pom.xml` → 参照物 `sky-pojo/pom.xml`
 - `sky-server/pom.xml` → 参照物 `sky-server/pom.xml`
 - `sky-server/src/main/java/com/sky/SkyApplication.java` → 参照物同路径文件
+
+**diff 验收细则（用户 · 老师共同认可）**：
+- **放行**（判通过，不修改）：XML 元素内部顺序不同、空行/换行符差异——Maven 对顺序与空白不敏感，不影响成品效果；
+- **必改**（判失败）：缺内容、写错坐标/类名/配置等**根本性错误**——任何可能导致成品效果与模板不一致的差异。
 
 ### 核对 2：包结构骨架
 - `sky-server/src/main/java/com/sky/` 下有 6 个目录（config/controller/handler/interceptor/mapper/service），各含 .gitkeep

@@ -4,7 +4,7 @@
 
 ## 参照物与产物
 - **官方脚手架（参照物/基准，只读不可修改）**：`E:\ACourseLearning\sky-take-out\sky-take-out-learn\sky-take-out\backend\sky-take-out\`（= 课程 day01 初始工程，架构 100% 给定、业务仅员工登录链路）
-- **本工作区复刻产物**：`./sky-take-out/`（Phase 2 产出），验收 = 与官方逐文件 diff **零差异**（目录结构/包名/类名/配置/行为）
+- **本工作区复刻产物**：`./sky-take-out/`（Phase 2 产出），验收 = 与官方逐文件 diff **内容一致**（目录结构/包名/类名/配置/行为；XML 元素顺序与空行差异放行，缺内容/写错必改——细则见单元 check.md）
 
 ## 目录结构
 - `sky-take-out/`：（Phase 2 产出）从零搭建的 Maven 多模块工程：sky-common（公共层）/ sky-pojo（entity/dto/vo）/ sky-server（controller/service/mapper 等）
