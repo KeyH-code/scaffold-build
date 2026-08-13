@@ -35,7 +35,7 @@ Maven 多模块工程（父 pom 管版本）🔴
 ### 基础设施（贯穿全程）
 | 知识点 | 难度 | 前置依赖 | 说明与难点 |
 |---|---|---|---|
-| Maven 多模块工程 | 🔴 | 无 | 父 pom 用 `dependencyManagement` 统一版本，子模块只写依赖不写版本；模块依赖方向 common ← pojo ← server |
+| Maven 多模块工程 | 🔴 | 无 | 父 pom 用 `dependencyManagement` 统一版本，子模块只写依赖不写版本；模块依赖方向：common 与 pojo **各自独立**（pojo 不依赖 common），server 依赖两者 |
 | HTTP 请求/响应 | 🔴 | 无 | URL、Method(GET/POST)、请求头、状态码；登录接口是全链路第一课 |
 | MySQL 数据库 | 🟡 | SQL 基础 | 建库 `sky_take_out`、导入 `sky.sql`；无需深入，够跑通即可 |
 | git 分支协作 | 🟡 | git 基础 | 每单元独立分支 + 合并；用户亲自操作 |

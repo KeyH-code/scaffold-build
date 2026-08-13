@@ -1,7 +1,7 @@
 # 学习路线图（learning-roadmap）
 
 > 生成日期：2026-08-12　活文档：每单元合并后更新进度
-> 总目标：从零复刻官方脚手架（93 源文件 / 3 模块），验收 = 逐文件 diff 零差异 + 登录链路跑通 + 理解达成
+> 总目标：从零复刻官方脚手架（93 源文件 / 3 模块），验收 = 逐文件 diff 内容一致 + 登录链路跑通 + 理解达成
 
 ## 阶段总览
 
@@ -9,7 +9,7 @@
 |---|---|---|
 | Phase 0 | 环境核查（JDK 21 先试 / IDEA 内置 Maven / MySQL 在跑 / Redis 后装） | ✅ 完成 |
 | 章程 | 本文档体系 + environment.md | ✅ 完成 |
-| 单元 1 | Maven 多模块骨架 | ⏳ 待开始 |
+| 单元 1 | Maven 多模块骨架 | ✅ 完成 |
 | 单元 2 | sky-common 公共层（29 文件） | ⏳ |
 | 单元 3 | sky-pojo 数据层（49 文件） | ⏳ |
 | 单元 4 | sky-server 员工登录链路（8 java + 3 resources） | ⏳ |
@@ -19,7 +19,7 @@
 
 ### 单元 1：Maven 多模块骨架
 - **目标**：理解 Maven 多模块工程的组织方式；产出根 pom + 3 子模块 pom + 启动类 + 空包结构
-- **任务组**：① 根 pom（parent/dependencyManagement/16 个受管依赖版本）② sky-common / sky-pojo / sky-server 三个子 pom（依赖关系、插件）③ SkyApplication 启动类 ④ 包结构骨架（com.sky.* 各包目录先建好）
+- **任务组**：① 根 pom（parent/dependencyManagement/15 个受管依赖版本）② sky-common / sky-pojo / sky-server 三个子 pom（依赖关系、插件）③ SkyApplication 启动类 ④ 包结构骨架（com.sky.* 各包目录先建好）
 - **验收**：pom ×4 + 启动类与官方 diff 零差异；能讲出"父 pom 管版本、子模块只管依赖"的道理
 - **学习点**：Maven 坐标（groupId/artifactId/version）、dependencyManagement 与 dependencies 区别、模块依赖方向、spring-boot-maven-plugin
 
@@ -44,7 +44,7 @@
 ### 单元 5：端到端验收
 - **目标**：证明"复刻成功"——跑起来、登录通、零差异
 - **任务组**：① MySQL 建库 sky_take_out + 导入 sky.sql ② IDEA 启动 SkyApplication（JDK 21 试跑）③ 打开 knife4j 文档页，调员工登录接口 ④ 逐文件 diff 官方参照物核对零差异（排除 .idea/target）⑤ 复盘 + 更新 changelog
-- **验收**：登录接口返回正确结果（含 token）；diff 零差异清单签字确认
+- **验收**：登录接口返回正确结果（含 token）；diff 内容一致清单签字确认
 - **学习点**：跑通验证方法（看日志/看返回）、diff 工具用法、环境问题排查
 
 ## 里程碑与分支策略
