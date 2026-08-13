@@ -23,6 +23,11 @@ Spring Boot 2.7.3（Java 17）、MyBatis 2.2.0、MySQL 8、Druid、Redis、JWT(j
 - 每单元：git 独立分支，小步提交
 - 验证不偷懒：费曼检验 + 亲手跑通 + 独立审查 AI 代码
 
+## 教学协作约定（重要）
+- **推进节奏由用户明确确认**：费曼检验回答有错或提出疑问时，老师解答后必须等用户明确说"明白了/继续"，才进入下一知识点；只有用户一次性回答正确且无疑问句时，老师才可直接推进。详见 `learning-specs/learning-mission.md`「教学协作约定」。
+- **文档词汇约定**：用户说「<全局文档>」= `learning-specs/` 下的 learning-mission.md / knowledge-map.md / learning-roadmap.md / learning-changelog.md（章程四文档）；说「<局部文档>」= `learning-specs/<日期>_<单元名>/` 下当前学习单元的三件套（plan / learning-goals / check）。
+- **大阶段沉淀**：learning-roadmap 里程碑（大阶段）完成时，将学习经验与知识记录进 Obsidian 仓库 `E:\deeplearning\dl\Java`，**记录更新完成后才进入下一步**。
+
 ## git 分工（重要约定）
 - **所有 git 操作由用户亲自执行**（init / add / commit / branch / merge / push 等），AI 只提供命令建议与讲解——用户正借此学透 git。
 - 远程仓库：https://github.com/KeyH-code/scaffold-build（已关联）
