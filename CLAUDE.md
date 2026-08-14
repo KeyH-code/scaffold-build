@@ -34,6 +34,4 @@ Spring Boot 2.7.3（Java 17）、MyBatis 2.2.0、MySQL 8、Druid、Redis、JWT(j
 - 每单元独立分支、小步提交，git log 即学习轨迹。
 
 ## 当前状态
-- Phase 0（环境核查）✅ 完成（2026-08-12）：MySQL 在跑 / JDK 21 先试跑（目标 17）/ IDEA 内置 Maven / Redis 未装（功能阶段再装），详见 `learning-specs/environment.md`
 - 章程阶段 ✅ 完成：learning-mission / knowledge-map / learning-roadmap / changelog 四文档已生成并审查通过
-- **下一步：单元 1（Maven 多模块骨架）**，建议另开新会话，按 sdd-learning 三件套流程（规划→实施→验证→合并）推进
