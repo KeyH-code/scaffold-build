@@ -48,9 +48,10 @@ Maven 多模块工程（父 pom 管版本）🔴
 | enumeration | 1 | 枚举 `OperationType`（INSERT/UPDATE，配合自动填充） | 🟢 |
 | exception | 12 | 异常体系：`BaseException` 基类 + 11 个业务异常（继承自 RuntimeException） | 🟢 |
 | context | 1 | `BaseContext`：ThreadLocal 存当前登录用户 id | 🔴 ThreadLocal 线程隔离概念 |
-| json | 1 | `JacksonObjectMapper`：Long→String 序列化（防前端精度丢失） | 🟡 |
+| json | 1 | `JacksonObjectMapper`：时间类型序列化格式配置（LocalDateTime→`yyyy-MM-dd HH:mm` 等，防前端解析异常） | 🟡 |
 | properties | 3 | `@ConfigurationProperties` 配置绑定（JwtProperties / AliOssProperties / WeChatProperties） | 🟡 |
 | utils | 4 | `JwtUtil`（生成/解析 JWT，登录链路核心）🔴；`HttpClientUtil`（发 HTTP 请求）🟡；`AliOssUtil` / `WeChatPayUtil` 了解即可 🟢 | 见各文件 |
+| （模块划分设计） | — | 8 包按职责分三类：契约类（constant/result/enumeration/exception）、配置与转换类（properties/json）、状态与能力类（context/utils）；有状态（context）与无状态（utils）分离；归属判断标准：多模块共用 + 与业务无关 | 🟡 |
 
 ### sky-pojo（数据层，49 文件）
 | 包 | 文件数 | 知识点 | 难度 |

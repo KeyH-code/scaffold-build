@@ -10,7 +10,7 @@
 | Phase 0 | 环境核查（JDK 21 先试 / IDEA 内置 Maven / MySQL 在跑 / Redis 后装） | ✅ 完成 |
 | 章程 | 本文档体系 + environment.md | ✅ 完成 |
 | 单元 1 | Maven 多模块骨架 | ✅ 完成 |
-| 单元 2 | sky-common 公共层（29 文件） | ⏳ |
+| 单元 2 | sky-common 公共层（29 文件） | ✅ 完成 |
 | 单元 3 | sky-pojo 数据层（49 文件） | ⏳ |
 | 单元 4 | sky-server 员工登录链路（8 java + 3 resources） | ⏳ |
 | 单元 5 | 端到端验收（建库 → 启动 → 登录接口 → 零差异 diff） | ⏳ |
@@ -26,8 +26,8 @@
 ### 单元 2：sky-common 公共层（29 文件）
 - **目标**：理解"公共层放什么"；产出 constant/context/enumeration/exception/json/properties/result/utils 8 包全部文件
 - **任务组**：① 简单包：constant（5）→ result（2）→ enumeration（1）→ exception（12）② 中难包：properties（3 配置绑定）→ json（1 序列化）→ context（1 ThreadLocal）→ utils（4，JwtUtil 重点讲解）
-- **验收**：29 文件与官方 diff 零差异；能讲出 BaseContext 为什么用 ThreadLocal、JwtUtil 的生成/解析流程
-- **学习点**：常量/枚举/异常体系、统一返回契约（Result）、@ConfigurationProperties、ThreadLocal、JWT 结构（header.payload.signature）
+- **验收**：29 文件与官方 diff 零差异（复现达标）；能讲出 BaseContext 为什么用 ThreadLocal、JwtUtil 的生成/解析流程，并说明各类的设计动机（设计达标）
+- **学习点**：常量/枚举/异常体系、统一返回契约（Result）、@ConfigurationProperties、ThreadLocal、JWT 结构（header.payload.signature）；**各包"为什么这样设计"（契约与取舍）**；**模块划分设计**（8 包职责分类、有状态/无状态分离、公共层归属判断）
 
 ### 单元 3：sky-pojo 数据层（49 文件）
 - **目标**：理解 DTO/Entity/VO 三者职责区别；产出 dto(21)/entity(11)/vo(17) 全部文件

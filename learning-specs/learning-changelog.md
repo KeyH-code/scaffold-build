@@ -56,3 +56,36 @@
 **下阶段调整**
 - 下一单元：单元 2（sky-common 公共层，29 文件），建议另开新会话按三件套流程推进
 - 待处理（上一单元遗留）：PATH 上损坏的 `javapath\java.exe`；Maven 面板"两个 sky-take-out"重复加载（建议只保留一个工程窗口）
+
+## 2026-08-14 — 单元 2：sky-common 公共层
+**做了什么**
+- 任务组 1-6 全部完成：概念铺垫 → constant+result → enumeration+exception → properties+json → context+utils → 验证（diff + 编译 + 费曼 10 题 + 审查练习）
+- 产出 `sky-common/src/main/java/com/sky/` 8 包 **29 文件**，与参照物逐文件 diff 实质内容一致（零必改项）；IDEA 编译 BUILD SUCCESS
+- Obsidian 笔记沉淀 3 篇：`04. 公共层设计：常量契约、统一返回与异常体系` / `05. 配置绑定与 JSON 序列化设计` / `06. ThreadLocal 与 JWT：线程隔离与无状态凭证`
+- 子 agent 审稿后补齐 03/04/05 三篇旧笔记的宏观设计铺垫（8 包三分类、包定位、分层/依赖方向设计）
+
+**学会了什么**
+- 公共层定位与判断标准（多模块共用 + 与业务无关）；**8 包按职责三分类**（契约类 / 配置与转换类 / 状态与能力类）；模块划分设计（有状态 context vs 无状态 utils 分离）
+- 常量类设计（**契约属性**：字段名=引用契约、值=行为契约）；Result 统一返回契约（静态工厂锁状态、泛型携带类型、Serializable 为存储兜底、data 是响应数据）
+- 枚举 vs 常量（编译器强制 vs 自觉）；异常体系（RuntimeException 冒泡统一处理、BaseException 多态捕获、异常只描述不处理、无参构造=反射兜底）
+- @ConfigurationProperties（@Component/@ConfigurationProperties/@Data 协作、中划线↔驼峰绑定、类在 common 值在 server）；JacksonObjectMapper（时间格式定制、FAIL_ON_UNKNOWN_PROPERTIES 容错）
+- ThreadLocal 机制（**数据存线程身上、ThreadLocal 只是钥匙**；线程池复用 → remove 必须调用）；JWT（三段结构、生成/解析流程、HS256 对称、防篡改原理、密钥保密防伪造而非防读取）
+- 长工具类 = 官方 SDK 示例 + 封装（API 照抄 / 结构自定 / 业务语义），三种注入风格并存
+
+**踩坑记录**
+- **参照物被误改**（JwtClaimsConstant 的 `USER_ID` → `USERID`/`"userid"`）：改产物时路径认混——**参照物（`../sky-take-out/backend/...`）只读**，git checkout 恢复
+- 常量字段名/值反复写错（`USERNAME` vs `USER_NAME`、`"userId"` vs `"userid"`）：教训——**敏感行（字段名/值）对照参照物逐字复制**
+- 泛型方法参数写成 Object（`success(Object data)`）：T 无法推断 → 调用处编译失败；必须 `success(T object)`（泛型方法参数必须用类型参数）
+- `JwtProperties.userTokenName` 类型写成 long（应为 String，同组规律：仅 ttl 是 long）；`WeChatProperties` 删了参照物的 `@Value` import、`JwtUtil` 加了参照物没有的 `lombok.Data` import——**零差异纪律：参照物有则抄、无则不加，不多不少**
+- `JwtUtil` 方法名 `createJwt`（应为 `createJWT`——方法名是引用契约）
+- 审查练习暴露：写 API 凭感觉命名（`threadLocal.setId` 不存在，应为 `set`）；包装类 `Integer` 默认值是 **null** 不是 0
+
+**规格修订确认（已同步各文档）**
+- knowledge-map json 包描述：Long→String 序列化 → **实际为时间格式序列化**（已修订）
+- 新增"设计"维度：复现与设计并重（mission 成功标准③ / roadmap 单元 2 验收 / plan 总目标 / learning-goals G9 / check 第 9 题）
+- 新增"模块划分设计"维度：learning-goals **G10**、check 费曼**第 10 题**、plan 总目标、mission 成功标准③、knowledge-map 新增模块划分设计行、roadmap 学习点（已同步）
+- Obsidian 笔记统一补齐宏观设计铺垫：8 包三分类、各包"为什么存在/为什么放这里"、分层与依赖方向设计（03/04/05/06 四篇）
+
+**下阶段调整**
+- 下一单元：单元 3（sky-pojo 数据层，49 文件），建议另开新会话按三件套流程推进
+- 待处理（沿用）：PATH 上损坏的 `javapath\java.exe`；Maven 面板重复加载问题
