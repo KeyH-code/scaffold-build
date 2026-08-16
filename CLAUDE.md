@@ -32,6 +32,7 @@ Spring Boot 2.7.3（Java 17）、MyBatis 2.2.0、MySQL 8、Druid、Redis、JWT(j
 - **所有 git 操作由用户亲自执行**（init / add / commit / branch / merge / push 等），AI 只提供命令建议与讲解——用户正借此学透 git。
 - 远程仓库：https://github.com/KeyH-code/scaffold-build（已关联）
 - 每单元独立分支、小步提交，git log 即学习轨迹。
+- **操作后确认（老师职责）**：用户每次 git 操作（提交/合并/推送/建删分支）后，老师立即核对仓库状态（分支/工作区/提交图/远程同步），确认无误才继续下一步；状态异常（漏推送、跟踪错乱、误操作）当场指出并修正——不积压、不后修。
 
 ## 当前状态
 - 章程阶段 ✅ 完成：learning-mission / knowledge-map / learning-roadmap / changelog 四文档已生成并审查通过
