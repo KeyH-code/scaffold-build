@@ -27,6 +27,7 @@ Spring Boot 2.7.3（Java 17）、MyBatis 2.2.0、MySQL 8、Druid、Redis、JWT(j
 - **推进节奏由用户明确确认**：费曼检验回答有错或提出疑问时，老师解答后必须等用户明确说"明白了/继续"，才进入下一知识点；只有用户一次性回答正确且无疑问句时，老师才可直接推进。详见 `learning-specs/learning-mission.md`「教学协作约定」。
 - **文档词汇约定**：用户说「<全局文档>」= `learning-specs/` 下的 learning-mission.md / knowledge-map.md / learning-roadmap.md / learning-changelog.md（章程四文档）；说「<局部文档>」= `learning-specs/<日期>_<单元名>/` 下当前学习单元的三件套（plan / learning-goals / check）。
 - **知识沉淀（Obsidian 笔记）**：① 知识点切换文件/代码类型时（如 pom.xml → .java）；② 大阶段（roadmap 里程碑）完成时——满足其一即记录进 Obsidian 仓库 `E:\deeplearning\dl\Java`，**记录更新完成后才进入下一步**。
+- **新会话 prompt 交接**：当按 sdd-learning 流程（或任何 skill 流程）需要另开新会话推进时，老师直接提供 skill 中的**固定 prompt 模板**（`~/.claude/skills/sdd-learning/SKILL.md`「固定 Prompt 模板」，按阶段选：规划/实施/验证/复盘），用户填占位内容后复制到新会话。**不重复文档已有信息**——背景、进度、约定由 CLAUDE.md 与 learning-specs 文档自动跟踪，prompt 只带阶段与占位参数。
 
 ## git 分工（重要约定）
 - **所有 git 操作由用户亲自执行**（init / add / commit / branch / merge / push 等），AI 只提供命令建议与讲解——用户正借此学透 git。
