@@ -14,7 +14,7 @@
 1. DTO / Entity / VO 三者各是什么？用你的类比讲一遍。一笔登录请求的数据，在这三者之间怎么流转？【深入】
 2. 登录接口为什么同时有 EmployeeLoginDTO 和 EmployeeLoginVO？它们的字段为什么不一样？password 为什么只进不出？【深入】
 3. @Data / @Builder / @NoArgsConstructor / @AllArgsConstructor 各自生成什么？为什么 @Builder 要配 @NoArgsConstructor？怎么证明 Lombok 真的生成了代码？【深入】
-4. @ApiModel / @ApiModelProperty 是给谁看的？为什么 UserLoginVO 没有、EmployeeLoginVO 有？遇到"参照物与你的猜测不一致"时怎么办？
+4. @ApiModel / @ApiModelProperty 是给谁看的？为什么同类型类有的有、有的没有？（遇到代码风格与你的预期不一致时怎么办？）
 5. 随机指一个 entity（如 Orders）：它对应哪张表？逐字段说列类型与 Java 类型对应；时间字段为什么不在类里写 @JsonFormat？那 OrdersSubmitDTO 里为什么有？
 6. 为什么 DishVO 比 Dish 实体字段多？flavors 字段为什么有个 `new ArrayList<>()` 初始值？报表 VO 为什么用逗号分隔字符串存图表数据？这说明了 VO 的什么职责特点？【深入】
 7. Orders 类里为什么内嵌状态常量而不放 common 的 StatusConstant？"常量放哪里"的判断标准是什么？【深入】

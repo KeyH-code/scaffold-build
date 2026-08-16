@@ -11,7 +11,7 @@
 | 章程 | 本文档体系 + environment.md | ✅ 完成 |
 | 单元 1 | Maven 多模块骨架 | ✅ 完成 |
 | 单元 2 | sky-common 公共层（29 文件） | ✅ 完成 |
-| 单元 3 | sky-pojo 数据层（49 文件） | ⏳ |
+| 单元 3 | sky-pojo 数据层（49 文件） | ✅ 完成 |
 | 单元 4 | sky-server 员工登录链路（8 java + 3 resources） | ⏳ |
 | 单元 5 | 端到端验收（建库 → 启动 → 登录接口 → 零差异 diff） | ⏳ |
 

@@ -57,6 +57,7 @@
 - 下一单元：单元 2（sky-common 公共层，29 文件），建议另开新会话按三件套流程推进
 - 待处理（上一单元遗留）：PATH 上损坏的 `javapath\java.exe`；Maven 面板"两个 sky-take-out"重复加载（建议只保留一个工程窗口）
 
+
 ## 2026-08-14 — 单元 2：sky-common 公共层
 **做了什么**
 - 任务组 1-6 全部完成：概念铺垫 → constant+result → enumeration+exception → properties+json → context+utils → 验证（diff + 编译 + 费曼 10 题 + 审查练习）
@@ -89,3 +90,36 @@
 **下阶段调整**
 - 下一单元：单元 3（sky-pojo 数据层，49 文件），建议另开新会话按三件套流程推进
 - 待处理（沿用）：PATH 上损坏的 `javapath\java.exe`；Maven 面板重复加载问题
+
+## 2026-08-16 — 单元 3：sky-pojo 数据层
+**做了什么**
+- 任务组 1-9 全部完成：概念先行（三者职责）→ 员工域 6 文件 → 用户+分类域 7 文件 → 批量域三阶段（29 文件：业务域速览→复制→抽查）→ 重点类教学（7 文件：组装VO/关联表/常量归属/报表VO）→ 验证（diff+编译+费曼+审查练习）→ 收尾
+- **教学计划中途调整（用户拍板）**：任务组 4-6 合并为"批量域速览+复制+抽查"，7 个高价值类（DishVO/DishFlavor/SetmealDish/Orders/OrdersSubmitDTO/OrderSubmitVO/OrderReportVO）走完整教学模式
+- 产出 `sky-pojo/src/main/java/com/sky/` dto(21)/entity(11)/vo(17) 共 **49 文件**，与参照物逐文件 diff 实质内容一致（必改清零；差异均为放行项：空行/注释措辞/import 顺序/注解顺序）；IDEA 编译 BUILD SUCCESS
+- Obsidian 笔记沉淀 2 篇：`07. 三层数据模型：DTO、Entity 与 VO 的职责分离` / `08. POJO 类设计模式：配方、字段与关联`
+
+**学会了什么**
+- 三者职责（输入/存储/展示三形态；变更隔离、最小暴露、职责单一）；登录双类（输入 2 字段 vs 输出 4 字段，password 只进不出）
+- Lombok 体系（@Data/Builder 与构造器三角关系：@AllArgs 使默认无参消失、框架需无参 → 三件套成套）；编译期（Lombok）vs 运行期（Spring）两个世界，数据类不被容器管理
+- ORM 映射（表=类、列=字段；bigint→Long、varchar→String、int→Integer、datetime→LocalDateTime；下划线转驼峰；包装类型 vs 基本类型的判断 = 是否可能无值）；**MyBatis 绑定在 Mapper 层**（SQL 写表名 + yml 开关），Entity 零绑定注解（半自动 ORM）
+- VO 形态演化：简单展示 → 组装型（初始值 `new ArrayList<>()` 防 NPE）→ 继承型（耦合代价、@Builder 失效）→ 报表型（逗号分隔字符串，按下标配对）
+- 字段设计方法论：**字段跟着动作走**（动作+原因/只需定位/全量输入）；定位字段（内部主键 vs 业务编号，跟随"操作者手里有什么"）；**展示形态决定字段**；状态常量归属（业务专属放自己类 / 跨模块通用放 common）
+- 关联表设计：子表（1:N 从属）vs 中间表（N:N，外键各一列）；逻辑外键（无物理约束，SQL join）；冗余字段 = 一致性成本换查询速度；@JsonFormat 全局/局部（默认全局，特殊精度局部覆盖）
+
+**踩坑记录**
+- **参照物再次被误改**（EmployeeLoginVO description 多出 "hd"）：单元 2 已踩过一次（JwtClaimsConstant），本次**重复踩坑**——教训：参照物只读，改产物前先核对路径（改文件时认准 `sky-take-out/sky-pojo` vs `../sky-take-out/backend/...`）
+- 单元 1 遗留：sky-pojo 包结构缺 `com/sky` 层（产物为 `java/dto` 而非 `java/com/sky/dto`），IDE 自动生成 `package dto;` —— 目录层级必须等于包名层级
+- 漏类注释（AddressBook/DishFlavor 的 Javadoc）；漏参照物自带的"看似多余的 import"（User 的 LocalDate、OrderPaymentVO 的 LocalDateTime）
+- 实体字段写成基本类型 `long`（应为 `Long`——可空语义）
+- 注释类型写错：Javadoc `/** */` 写成块注释 `/* */`
+- 审查练习暴露：找错要**分层扫描**（先字段层→再注解层→再 import 层）；DTO 不需要 @Builder（Jackson 反序列化创建）
+
+**规格修订确认（已同步各文档）**
+- roadmap 单元 3 任务组改为：概念先行 + 业务域 + 批量域 + 重点类（用户拍板，已同步）
+- 教学节奏调整：批量域速览+复制+抽查（plan 偏差备注第 2 条）
+- 笔记通用化：mission 笔记书写标准新增**第 7 条通用化原则** + 定位补充（通用知识为主体、项目仅举例）；08 重写 + 01-07 共 9 处修改（去复刻语境，子 agent 检查）
+- 费曼题设计原则：mission 教学协作约定新增；check 费曼第 4 题通用化（去"参照物"表述）
+
+**下阶段调整**
+- 下一单元：单元 4（sky-server 员工登录链路，8 java + 3 resources），建议另开新会话按三件套流程推进
+- 待处理（沿用）：PATH 上损坏的 `javapath\java.exe`；Maven 面板"两个 sky-take-out"重复加载
