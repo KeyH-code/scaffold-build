@@ -4,8 +4,9 @@
 > 验证三件套：费曼检验 + 亲手验证 + 审查练习，全部通过才算学会
 > 命名约定同 plan.md：**参照物** = `../sky-take-out/backend/sky-take-out/sky-server/`；**产物** = `./sky-take-out/sky-server/`
 
-## 〇、开场抽查（单元 2+3 混合，不达标先补学）
-老师随机抽查**上两个单元**的 4-5 个核心知识点（Result 契约 code=1/0、JWT 生成/解析流程、ThreadLocal 为什么用 ThreadLocal、配置绑定规则 / DTO/Entity/VO 三者职责、登录双类为什么存在、Lombok 为什么 @Builder 配 @NoArgsConstructor、@ApiModel 给谁看），用户不看文档回答；答错或答不出 → 先补学对应知识，再进入任务组 1。
+## 〇、前置知识抽查（单元 2+3，与本单元验收合并执行）
+> 调整说明（2026-08-16 用户拍板）：原"开场抽查"移至本单元任务组 6 验收阶段执行——单元 3 刚完成验证、知识新鲜，不重复开场抽查；验收时执行顺序：本抽查通过 → 再进入费曼检验。
+老师随机抽查**上两个单元**的 4-5 个核心知识点（Result 契约 code=1/0、JWT 生成/解析流程、ThreadLocal 为什么用 ThreadLocal、配置绑定规则 / DTO/Entity/VO 三者职责、登录双类为什么存在、Lombok 为什么 @Builder 配 @NoArgsConstructor、@ApiModel 给谁看），用户不看文档回答；答错或答不出 → 先补学对应知识，再进入本单元费曼检验。
 
 ## 一、费曼检验（用户讲，老师提问）
 
