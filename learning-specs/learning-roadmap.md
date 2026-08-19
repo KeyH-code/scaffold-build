@@ -12,8 +12,8 @@
 | 单元 1 | Maven 多模块骨架 | ✅ 完成 |
 | 单元 2 | sky-common 公共层（29 文件） | ✅ 完成 |
 | 单元 3 | sky-pojo 数据层（49 文件） | ✅ 完成 |
-| 单元 4 | sky-server 员工登录链路（8 java + 3 resources） | ⏳ |
-| 单元 5 | 端到端验收（建库 → 启动 → 登录接口 → 零差异 diff） | ⏳ |
+| 单元 4 | sky-server 员工登录链路（8 java + 3 resources） | ✅ 完成 |
+| 单元 5 | 端到端验收（建库 → 启动 → 登录接口 → 零差异 diff） | ⏳ 进行中（任务组 1-3 完成，任务组 4-6 待完成） |
 | 过渡单元（占位） | 待规划——建议方向见文末「后续规划占位」，计划届时另行设计 | 🔲 占位 |
 
 ## 单元详情
@@ -36,11 +36,11 @@
 - **验收**：49 文件与官方 diff 零差异；能回答"登录接口为什么同时有 EmployeeLoginDTO 和 EmployeeLoginVO"
 - **学习点**：ORM 映射、Lombok 注解（@Data/@Builder 等）、DTO/Entity/VO 的分层职责、类设计（@ApiModel 注解为 knife4j 服务）
 
-### 单元 4：sky-server 员工登录链路（8 java + 3 resources）
+### 单元 4：sky-server 员工登录链路（8 java + 3 resources）✅ 完成
 - **目标**：打通完整故事——HTTP 请求进来后发生什么；产出全部代码与配置
-- **任务组**：① application.yml + application-dev.yml（配置讲解）② config（knife4j + 拦截器注册）③ interceptor（JWT 校验）④ handler（全局异常）⑤ mapper（接口 + XML）⑥ service/impl（登录业务）⑦ controller（登录接口）
-- **验收**：与官方 diff 零差异；能完整讲出登录请求的旅程（Controller → Service → Mapper → MySQL → 密码比对 → JWT 签发 → 拦截器下次校验）
-- **学习点**：Spring Boot 自动配置与启动流程、三层架构、MyBatis XML mapper、拦截器机制、全局异常处理、knife4j 文档
+- **任务组**：① 概念先行（八站旅程）② 配置（application.yml + application-dev.yml）③ 登录链路三层（Mapper+XML → Service+Impl → Controller）④ 拦截器+Web配置中心 ⑤ 全局异常处理器 ⑥ 验证 ⑦ 收尾
+- **验收**：与官方 diff 内容一致；能完整讲出登录请求的旅程（拦截器排除 → Controller → Service → Mapper → 密码比对 → JWT 签发 → 下次请求拦截器验 token）
+- **学习点**：Spring Boot 配置体系（双环境+占位符）、三层架构与依赖注入、MyBatis 双通道（注解+XML空壳、驼峰映射）、拦截器机制（JWT验证+路径排除）、全局异常处理、knife4j 文档生效
 
 ### 单元 5：端到端验收
 - **目标**：证明"复刻成功"——跑起来、登录通、零差异
